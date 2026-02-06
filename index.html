@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Supplemental materials for the Bat Activity Study analyzing differences in call frequency across habitats using GAMMs.">
   <title>Supplemental Materials — Bat Activity Study</title>
   <style>
     body {
@@ -10,9 +12,51 @@
       margin: 40px auto;
       line-height: 1.6;
       padding: 0 20px;
+      background-color: #f9f9f9;
+      color: #333;
     }
-    h1 { border-bottom: 2px solid #333; }
-    a { color: #0056b3; }
+    h1, h2 {
+      border-bottom: 2px solid #333;
+      padding-bottom: 5px;
+    }
+    h2 {
+      margin-top: 30px;
+    }
+    a {
+      color: #0056b3;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    li {
+      margin: 10px 0;
+    }
+    .figure-thumb {
+      max-width: 200px;
+      display: block;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      padding: 2px;
+      background-color: #fff;
+    }
+    .download-link {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 5px 10px;
+      background-color: #0056b3;
+      color: #fff;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .download-link:hover {
+      background-color: #003f7f;
+    }
   </style>
 </head>
 
@@ -22,27 +66,40 @@
 
 <p>
 This page contains supplemental data and figures for:
-<strong>[Your Poster Title]</strong>
+<strong>Bat Activity Study: Differences in Call Frequency Across Habitats</strong>.
+These materials support the analyses performed using a generalized additive mixed model (GAMM) to examine bat call frequency variation among three habitat types.
 </p>
 
 <h2>Data Tables</h2>
 <ul>
-  <li><a href="supplemental/tables/summary_stats.csv">Summary statistics (CSV)</a></li>
-  <li><a href="supplemental/tables/model_results.csv">Model results (CSV)</a></li>
+  <li>
+    <a class="download-link" href="supplemental/tables/summary_stats.csv">Download Summary Statistics (CSV)</a>
+    <p>Contains mean, SD, and other descriptive statistics of call frequencies for each habitat.</p>
+  </li>
+  <li>
+    <a class="download-link" href="supplemental/tables/model_results.csv">Download Model Results (CSV)</a>
+    <p>GAMM outputs including coefficients, confidence intervals, and significance for habitat comparisons.</p>
+  </li>
 </ul>
 
 <h2>Supplemental Figures</h2>
 <ul>
-  <li><a href="supplemental/figures/exploratory_plot1.png">Exploratory plot 1</a></li>
-  <li><a href="supplemental/figures/exploratory_plot2.png">Exploratory plot 2</a></li>
+  <li>
+    <a href="supplemental/figures/exploratory_plot1.png">Exploratory Plot 1</a>
+    <img src="supplemental/figures/exploratory_plot1.png" alt="Exploratory Plot 1" class="figure-thumb">
+    <p>Visualization of call frequency distributions across habitats.</p>
+  </li>
+  <li>
+    <a href="supplemental/figures/exploratory_plot2.png">Exploratory Plot 2</a>
+    <img src="supplemental/figures/exploratory_plot2.png" alt="Exploratory Plot 2" class="figure-thumb">
+    <p>Model diagnostic plot showing residuals and fit of the GAMM.</p>
+  </li>
 </ul>
 
 <h2>Repository</h2>
 <p>
-Full analysis code is available on GitHub:
-<a href="https://github.com/sacoleman18-cloud/SchmeeckleGAMMSupplemental">
-View repository
-</a>
+Full analysis code is available on GitHub: 
+<a href="https://github.com/sacoleman18-cloud/SchmeeckleGAMMSupplemental" target="_blank">View repository</a>.
 </p>
 
 </body>
