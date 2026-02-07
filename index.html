@@ -9,6 +9,18 @@
   <!-- Plotly for interactive plots -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+  <!-- jQuery (required for DataTables) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- DataTables CSS -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css">
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+
+  <!-- PapaParse for CSV parsing -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
   <style>
     /* ============================================
        Base Styles
@@ -256,6 +268,164 @@
     }
 
     /* ============================================
+       DataTables Styling
+       ============================================ */
+    .table-container {
+      margin-top: 25px;
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      overflow-x: auto;
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+      margin-top: 15px;
+    }
+
+    table.dataTable {
+      width: 100% !important;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.9em;
+    }
+
+    table.dataTable thead th {
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      font-weight: 600;
+      padding: 12px 10px;
+      border-bottom: 2px solid #e0e0e0;
+      text-align: left;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    table.dataTable thead th.sorting,
+    table.dataTable thead th.sorting_asc,
+    table.dataTable thead th.sorting_desc {
+      cursor: pointer;
+      position: relative;
+      padding-right: 30px;
+    }
+
+    table.dataTable thead th.sorting:after,
+    table.dataTable thead th.sorting_asc:after,
+    table.dataTable thead th.sorting_desc:after {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.8em;
+      color: #2980b9;
+    }
+
+    table.dataTable tbody td {
+      padding: 10px;
+      border-bottom: 1px solid #f0f0f0;
+      color: #555;
+    }
+
+    table.dataTable tbody tr:hover {
+      background-color: #f8f9fa;
+    }
+
+    table.dataTable tbody tr.even {
+      background-color: #ffffff;
+    }
+
+    table.dataTable tbody tr.odd {
+      background-color: #fafafa;
+    }
+
+    .dataTables_wrapper .dataTables_filter {
+      margin-bottom: 15px;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 6px 10px;
+      font-size: 0.9em;
+      margin-left: 8px;
+    }
+
+    .dataTables_wrapper .dataTables_filter input:focus {
+      outline: none;
+      border-color: #2980b9;
+      box-shadow: 0 0 0 2px rgba(41, 128, 185, 0.1);
+    }
+
+    .dataTables_wrapper .dataTables_length {
+      margin-bottom: 15px;
+    }
+
+    .dataTables_wrapper .dataTables_length select {
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 4px 8px;
+      font-size: 0.9em;
+      margin: 0 5px;
+    }
+
+    .dataTables_wrapper .dataTables_info {
+      color: #666;
+      font-size: 0.9em;
+      padding-top: 10px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate {
+      padding-top: 10px;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+      padding: 6px 12px;
+      margin: 0 2px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      color: #2980b9 !important;
+      background: #fff !important;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+      background: #2980b9 !important;
+      color: #fff !important;
+      border-color: #2980b9;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+      background: #2980b9 !important;
+      color: #fff !important;
+      border-color: #2980b9;
+    }
+
+    .dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .table-loading {
+      text-align: center;
+      padding: 40px;
+      color: #666;
+      font-style: italic;
+    }
+
+    .table-error {
+      text-align: center;
+      padding: 40px;
+      color: #e74c3c;
+      background-color: #fee;
+      border-radius: 6px;
+      border: 1px solid #fcc;
+    }
+
+    /* ============================================
        Responsive Design
        ============================================ */
     @media (max-width: 768px) {
@@ -277,6 +447,31 @@
 
       .figure-grid {
         grid-template-columns: 1fr;
+      }
+
+      .table-container {
+        padding: 15px;
+      }
+
+      .dataTables_wrapper .dataTables_length,
+      .dataTables_wrapper .dataTables_filter {
+        text-align: left;
+        margin-bottom: 10px;
+      }
+
+      .dataTables_wrapper .dataTables_length select,
+      .dataTables_wrapper .dataTables_filter input {
+        width: 100%;
+        margin: 5px 0;
+      }
+
+      table.dataTable {
+        font-size: 0.85em;
+      }
+
+      table.dataTable thead th,
+      table.dataTable tbody td {
+        padding: 8px 6px;
       }
     }
 
@@ -323,6 +518,21 @@
       <p class="item-description">
         Complete master dataset containing all bat acoustic monitoring records, detector metadata, and environmental covariates.
       </p>
+
+      <!-- Interactive Master Dataset Table -->
+      <div class="table-container">
+        <h3 style="margin-top: 0; margin-bottom: 10px;">Explore Master Dataset</h3>
+        <p class="item-description" style="margin-bottom: 15px;">
+          Browse and search the master dataset interactively. The table displays 25 rows per page by default. 
+          Use the search box to filter across all columns, click column headers to sort, and scroll horizontally 
+          to view all 50 columns. All ~1,500 rows are accessible through pagination.
+        </p>
+        <div class="table-wrapper">
+          <div id="masterTableLoading" class="table-loading">Loading master dataset...</div>
+          <div id="masterTableError" class="table-error" style="display: none;"></div>
+          <table id="masterTable" class="display" style="width:100%; display: none;"></table>
+        </div>
+      </div>
     </div>
 
     <div class="item-container">
@@ -332,6 +542,20 @@
       <p class="item-description">
         Aggregated dataset summarizing total bat calls per night for each detector, suitable for time-series and habitat comparison analyses.
       </p>
+
+      <!-- Interactive Calls Per Night Table -->
+      <div class="table-container">
+        <h3 style="margin-top: 0; margin-bottom: 10px;">Explore Calls Per Night Dataset</h3>
+        <p class="item-description" style="margin-bottom: 15px;">
+          Browse and search the calls-per-night dataset interactively. This table contains ~169 rows with 7 columns. 
+          Use the search box to filter data and click column headers to sort. All rows are displayed by default.
+        </p>
+        <div class="table-wrapper">
+          <div id="callsTableLoading" class="table-loading">Loading calls-per-night dataset...</div>
+          <div id="callsTableError" class="table-error" style="display: none;"></div>
+          <table id="callsTable" class="display" style="width:100%; display: none;"></table>
+        </div>
+      </div>
     </div>
 
     <div class="item-container">
@@ -499,6 +723,152 @@
     };
 
     Plotly.newPlot('interactivePlot', [trace], layout, config);
+  </script>
+
+  <!-- ============================================
+       Interactive Tables Script
+       ============================================ -->
+  <script>
+    // ============================================
+    // Master Dataset Table
+    // ============================================
+    function loadMasterTable() {
+      const csvPath = 'supplemental/data/master.csv';
+      const loadingEl = document.getElementById('masterTableLoading');
+      const errorEl = document.getElementById('masterTableError');
+      const tableEl = document.getElementById('masterTable');
+
+      Papa.parse(csvPath, {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        complete: function(results) {
+          if (results.errors.length > 0) {
+            loadingEl.style.display = 'none';
+            errorEl.style.display = 'block';
+            errorEl.textContent = 'Error loading CSV: ' + results.errors[0].message;
+            return;
+          }
+
+          const data = results.data;
+          const columns = results.meta.fields.map(field => ({
+            title: field,
+            data: field
+          }));
+
+          // Initialize DataTable
+          const table = $(tableEl).DataTable({
+            data: data,
+            columns: columns,
+            pageLength: 25,
+            lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'All']],
+            scrollX: true,
+            scrollCollapse: true,
+            order: [[0, 'asc']],
+            dom: '<"top"lf>rt<"bottom"ip>',
+            language: {
+              search: 'Search all columns:',
+              lengthMenu: 'Show _MENU_ entries',
+              info: 'Showing _START_ to _END_ of _TOTAL_ entries',
+              infoEmpty: 'No entries to show',
+              infoFiltered: '(filtered from _MAX_ total entries)',
+              zeroRecords: 'No matching records found'
+            },
+            columnDefs: [
+              {
+                targets: '_all',
+                className: 'dt-body-left'
+              }
+            ]
+          });
+
+          // Hide loading, show table
+          loadingEl.style.display = 'none';
+          tableEl.style.display = 'table';
+        },
+        error: function(error) {
+          loadingEl.style.display = 'none';
+          errorEl.style.display = 'block';
+          errorEl.textContent = 'Error loading CSV file. Please ensure the file exists at: ' + csvPath;
+          console.error('PapaParse error:', error);
+        }
+      });
+    }
+
+    // ============================================
+    // Calls Per Night Table
+    // ============================================
+    function loadCallsTable() {
+      const csvPath = 'supplemental/data/calls_per_night.csv';
+      const loadingEl = document.getElementById('callsTableLoading');
+      const errorEl = document.getElementById('callsTableError');
+      const tableEl = document.getElementById('callsTable');
+
+      Papa.parse(csvPath, {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        complete: function(results) {
+          if (results.errors.length > 0) {
+            loadingEl.style.display = 'none';
+            errorEl.style.display = 'block';
+            errorEl.textContent = 'Error loading CSV: ' + results.errors[0].message;
+            return;
+          }
+
+          const data = results.data;
+          const columns = results.meta.fields.map(field => ({
+            title: field,
+            data: field
+          }));
+
+          // Initialize DataTable
+          const table = $(tableEl).DataTable({
+            data: data,
+            columns: columns,
+            pageLength: 25,
+            lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, 'All']],
+            order: [[0, 'asc']],
+            dom: '<"top"lf>rt<"bottom"ip>',
+            language: {
+              search: 'Search all columns:',
+              lengthMenu: 'Show _MENU_ entries',
+              info: 'Showing _START_ to _END_ of _TOTAL_ entries',
+              infoEmpty: 'No entries to show',
+              infoFiltered: '(filtered from _MAX_ total entries)',
+              zeroRecords: 'No matching records found'
+            },
+            columnDefs: [
+              {
+                targets: '_all',
+                className: 'dt-body-left'
+              }
+            ]
+          });
+
+          // Hide loading, show table
+          loadingEl.style.display = 'none';
+          tableEl.style.display = 'table';
+        },
+        error: function(error) {
+          loadingEl.style.display = 'none';
+          errorEl.style.display = 'block';
+          errorEl.textContent = 'Error loading CSV file. Please ensure the file exists at: ' + csvPath;
+          console.error('PapaParse error:', error);
+        }
+      });
+    }
+
+    // ============================================
+    // Initialize tables when page loads
+    // ============================================
+    $(document).ready(function() {
+      // Load tables after a short delay to ensure all libraries are ready
+      setTimeout(function() {
+        loadMasterTable();
+        loadCallsTable();
+      }, 100);
+    });
   </script>
 
 </body>
