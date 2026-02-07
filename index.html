@@ -496,80 +496,10 @@
     <strong>Bat Activity Study: Differences in Call Frequency Across Habitats</strong>.
   </p>
 
-  <!-- ============================================
-       SECTION 1: General Study Materials
-       ============================================ -->
-  <div class="section">
-    <h2>General Study Materials</h2>
 
-    <div class="item-container">
-      <a href="supplemental/reports/report.html" class="report-link" target="_blank">
-        View Quarto HTML Report
-      </a>
-      <p class="item-description">
-        Comprehensive report containing general plots, tables, and exploratory analyses of bat acoustic activity data.
-      </p>
-    </div>
-
-    <div class="item-container">
-      <a href="supplemental/data/master.csv" class="download-button" download>
-        Download Master Dataset (CSV)
-      </a>
-      <p class="item-description">
-        Complete master dataset containing all bat acoustic monitoring records, detector metadata, and environmental covariates.
-      </p>
-
-      <!-- Interactive Master Dataset Table -->
-      <div class="table-container">
-        <h3 style="margin-top: 0; margin-bottom: 10px;">Explore Master Dataset</h3>
-        <p class="item-description" style="margin-bottom: 15px;">
-          Browse and search the master dataset interactively. The table displays 25 rows per page by default. 
-          Use the search box to filter across all columns, click column headers to sort, and scroll horizontally 
-          to view all 50 columns. All ~1,500 rows are accessible through pagination.
-        </p>
-        <div class="table-wrapper">
-          <div id="masterTableLoading" class="table-loading">Loading master dataset...</div>
-          <div id="masterTableError" class="table-error" style="display: none;"></div>
-          <table id="masterTable" class="display" style="width:100%; display: none;"></table>
-        </div>
-      </div>
-    </div>
-
-    <div class="item-container">
-      <a href="supplemental/data/calls_per_night.csv" class="download-button" download>
-        Download Calls Per Night Dataset (CSV)
-      </a>
-      <p class="item-description">
-        Aggregated dataset summarizing total bat calls per night for each detector, suitable for time-series and habitat comparison analyses.
-      </p>
-
-      <!-- Interactive Calls Per Night Table -->
-      <div class="table-container">
-        <h3 style="margin-top: 0; margin-bottom: 10px;">Explore Calls Per Night Dataset</h3>
-        <p class="item-description" style="margin-bottom: 15px;">
-          Browse and search the calls-per-night dataset interactively. This table contains ~169 rows with 7 columns. 
-          Use the search box to filter data and click column headers to sort. All rows are displayed by default.
-        </p>
-        <div class="table-wrapper">
-          <div id="callsTableLoading" class="table-loading">Loading calls-per-night dataset...</div>
-          <div id="callsTableError" class="table-error" style="display: none;"></div>
-          <table id="callsTable" class="display" style="width:100%; display: none;"></table>
-        </div>
-      </div>
-    </div>
-
-    <div class="item-container">
-      <a href="https://github.com/sacoleman18-cloud/Kpro_Masterfile_Pipeline" class="github-link" target="_blank">
-        View Stats & Plotting Pipeline Repository
-      </a>
-      <p class="item-description">
-        GitHub repository containing the complete R code for data processing, statistical analysis, and figure generation.
-      </p>
-    </div>
-  </div>
 
   <!-- ============================================
-       SECTION 2: NB GAMM Model Materials
+       SECTION 1: NB GAMM Model Materials
        ============================================ -->
   <div class="section">
     <h2>NB GAMM Model Materials</h2>
@@ -656,6 +586,78 @@
     </div>
   </div>
 
+  <!-- ============================================
+       SECTION 2: General Study Materials
+       ============================================ -->
+  <div class="section">
+    <h2>General Study Materials</h2>
+
+    <div class="item-container">
+      <a href="supplemental/reports/report.html" class="report-link" target="_blank">
+        View Quarto HTML Report
+      </a>
+      <p class="item-description">
+        Comprehensive report containing general plots, tables, and exploratory analyses of bat acoustic activity data.
+      </p>
+    </div>
+
+    <div class="item-container">
+      <a href="supplemental/data/master.csv" class="download-button" download>
+        Download Master Dataset (CSV)
+      </a>
+      <p class="item-description">
+        Complete master dataset containing all bat acoustic monitoring records, detector metadata, and environmental covariates.
+      </p>
+
+      <!-- Interactive Master Dataset Table -->
+      <div class="table-container">
+        <h3 style="margin-top: 0; margin-bottom: 10px;">Explore Master Dataset</h3>
+        <p class="item-description" style="margin-bottom: 15px;">
+          Browse and search the master dataset interactively. The table displays 25 rows per page by default. 
+          Use the search box to filter across all columns, click column headers to sort, and scroll horizontally 
+          to view all 50 columns. All ~1,500 rows are accessible through pagination.
+        </p>
+        <div class="table-wrapper">
+          <div id="masterTableLoading" class="table-loading">Loading master dataset...</div>
+          <div id="masterTableError" class="table-error" style="display: none;"></div>
+          <table id="masterTable" class="display" style="width:100%; display: none;"></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-container">
+      <a href="supplemental/data/calls_per_night.csv" class="download-button" download>
+        Download Calls Per Night Dataset (CSV)
+      </a>
+      <p class="item-description">
+        Aggregated dataset summarizing total bat calls per night for each detector, suitable for time-series and habitat comparison analyses.
+      </p>
+
+      <!-- Interactive Calls Per Night Table -->
+      <div class="table-container">
+        <h3 style="margin-top: 0; margin-bottom: 10px;">Explore Calls Per Night Dataset</h3>
+        <p class="item-description" style="margin-bottom: 15px;">
+          Browse and search the calls-per-night dataset interactively. This table contains ~169 rows with 7 columns. 
+          Use the search box to filter data and click column headers to sort. All rows are displayed by default.
+        </p>
+        <div class="table-wrapper">
+          <div id="callsTableLoading" class="table-loading">Loading calls-per-night dataset...</div>
+          <div id="callsTableError" class="table-error" style="display: none;"></div>
+          <table id="callsTable" class="display" style="width:100%; display: none;"></table>
+        </div>
+      </div>
+    </div>
+
+    <div class="item-container">
+      <a href="https://github.com/sacoleman18-cloud/Kpro_Masterfile_Pipeline" class="github-link" target="_blank">
+        View Stats & Plotting Pipeline Repository
+      </a>
+      <p class="item-description">
+        GitHub repository containing the complete R code for data processing, statistical analysis, and figure generation.
+      </p>
+    </div>
+  </div>
+  
   <!-- ============================================
        Interactive Plot Script
        ============================================ -->
